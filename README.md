@@ -17,8 +17,9 @@ A function is like a container of code, you can put your code inside of it and s
 To *declare* a *named function*, you start with the `function` keyword followed by the name you want to *invoke* it with later to run the code inside.
 
 ```javascript
-
+// define a function named 'sayHello' that introduces itself with a console log
 function sayHello() {
+  // code inside here doesn't run until sayHello() is invoked
   console.log("hi, I'm a function")
 }
 ```
@@ -27,7 +28,8 @@ The parenthesis `()` after the name are always needed, even if they are empty, a
 
 The code inside the function won't run until the function is *invoked* with the function's name followed by parenthesis:
 
-```javascipt
+```javascript
+// invoke the function sayHello
 sayHello() // logs hi, I'm a function
 ```
 
@@ -37,12 +39,15 @@ ___
 Variables declared outside of a function are in the *global scope* -- **everyone has access to them**. Variables declared with `let` inside functions are in the *local scope* of that function -- **nobody has access to them outside of the function**
 
 ```javascript 
+// declare a variable in the global scope and assign it a string value
 let globalVariable = "Everyone can access me, I'm a variable in the global scope!"
 
+// declare a function named 'sharingIsCaring' that prints globalVariable
 function sharingIsCaring() {
   console.log(`sharingIsCaring() logs: ${globalVariable}`)
 }
 
+  // declare a function named 'workingTogether' that prints globalVariable
 function workingTogether() {
   console.log(`workingTogether() logs: ${globalVariable}`)
 }
@@ -54,7 +59,9 @@ workingTogether()
 Trying to access a variable that has been declared in a *local scope* from some where else will throw an error:
 
 ```javascript
+// declare a function named 'selfish'
 function selfish() {
+  // declare a locally scoped variable named 'mineAllMine'
   let mineAllMine = "nobody else can get me"
 }
 
@@ -67,12 +74,14 @@ ___
 Functions can be given *parameters* when the are *invoked*, and they will use the parameters when they run their code. *NOTE function parameters are often called **function arguments** as well*. The parameters are named like variables when the function is *declared*.
 
 ```javascript
+// declare a function that accepts two arguments that are numbers, adds them, and logs the sum
 function addTwoNumbers(number1, number2) {
-  // add the arguments together
+  // add the arguments together in a local variable
   let sum = number1 + number2
   console.log(`${number1} plus ${number2} is ${sum}`)
 }
 
+// invoke the functions
 addTwoNumbers(5, 10) // 15
 addTwoNumbers(3, 3) // 6
 
@@ -90,6 +99,7 @@ addTwoNumbers(nine, seven)
 If *parameters* are the entrance to a function, then its *return* is the exit. A function's return will **stop** the code inside, and can give a value back.
 
 ```javascript
+// declare a function that accepts two arguments that are numbers, adds them, and returns the sum
 function addTwoAndReturn(number1, number2) {
   // log the values passed as parameters
   console.log(`thanks for ${number1} and ${number2}!`)
@@ -126,7 +136,7 @@ In javascript, functions are called *first class*. That means they are just like
 Instead of creating a named function, lets make an anonymous function and assign it to a constant:
 
 ```javascript 
-
+// declare a global constant named 'anon' and assign it a value of an anonymous function
 const anon = function() {
   console.log("I prefer the privacy of anonymity")
 }
@@ -135,6 +145,7 @@ const anon = function() {
 *Arrow functions* are another type of anonymous function, and are written with a fat arrow `=>` instead on the keyword function: 
 
 ```javascript
+// declare a global constant named 'arrow' and assign it a value of an anonymous arrow function
 const arrow = () => {
   console.log("I'm an arrow function 🏹")
 }
@@ -143,17 +154,20 @@ const arrow = () => {
 Parameters are passed to arrow functions between the parentheses like a named function:
 
 ```javascript
+// declare a global constant named 'arrowAdd' and assign it a value of an arrow function that accepts
+// two numbers as parameters and returns their sum
 const arrowAdd = (number1, number2) => {
   return number1 + number2
 }
 
+// invoke arrowAdd and assign the return value to a variable
 let arrowSum = arrowAdd(10, 20)
 console.log(arrowSum)
 ```
 
 ## Callback Functions
 
-*Callback functions* are passed to another function's parameters. Make sure not to use the `()` when passing the callback, overwise javascript will *invoke* it right away!
+*Callback functions* are passed to another function's parameters. Make sure not to use the `()` when passing the callback, overwise javascript will *invoke* it right away! A function that receives a *callback* as on of its parameters is called a *higher order function*.
 
 ```javascript
 // will call a function passed to it
