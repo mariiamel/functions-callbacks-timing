@@ -167,7 +167,7 @@ console.log(arrowSum)
 
 ## Callback Functions
 
-*Callback functions* are passed to another function's parameters. Make sure not to use the `()` when passing the callback, overwise javascript will *invoke* it right away! A function that receives a *callback* as on of its parameters is called a *higher order function*.
+*Callback functions* are passed to another function's parameters. Make sure not to use the `()` when passing the callback, overwise javascript will *invoke* it right away! A function that receives a *callback* as on of its parameters is called a *higher order function*.`
 
 ```javascript
 // will call a function passed to it
