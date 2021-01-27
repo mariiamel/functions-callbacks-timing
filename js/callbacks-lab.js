@@ -110,4 +110,9 @@ Use setInteral and setTimeout to write a program that prints the following:
 2
 1
 Blast off!
+Think about what you will need to solve this problem 
+what global variables will you need?
+what functions?
+what will the functions need to do?
+try writing out the solution in plain english 'pseudo code' first to get started
 */  //  //  //  //  //  //  //  //
